@@ -16,7 +16,7 @@ services:
       - "3306:3306"
 
   wordpress:
-    image: wordpress:6.6-php8.2-apache
+    image: wordpress
     depends_on:
       - db
     restart: unless-stopped

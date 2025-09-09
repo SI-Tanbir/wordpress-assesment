@@ -20,6 +20,7 @@
 	</div>
 </section>
 
+<!-- dynamic listing added here -->
 <section class="section">
 	<div class="container">
 		<h2>Featured Properties</h2>
@@ -27,9 +28,15 @@
 		<div class="grid cols-3">
 			<?php
 			$props = new WP_Query([
-				'post_type' => 'property',
+				'post_type' => 'property-listing',
 				'posts_per_page' => 6,
 			]);
+			error_log("shafikul checking");
+error_log(print_r($props->posts, true));
+error_log("SQL: " . $props->request);
+
+
+
 			if ($props->have_posts()) :
 				while ($props->have_posts()) : $props->the_post(); ?>
 					<article class="card">
@@ -51,10 +58,30 @@
 	</div>
 </section>
 
+
+
+
 <section class="section" style="background: var(--light)">
 	<div class="container">
 		<h2>Why Choose Us</h2>
 		<p class="lead">We provide curated listings, expert guidance, and seamless purchase experience.</p>
+		<div class="features grid cols-3">
+			<div class="feature-card reveal">
+				<div class="feature-icon">🏠</div>
+				<h3>Curated Properties</h3>
+				<p>Only quality homes make it to our listings. Save time browsing.</p>
+			</div>
+			<div class="feature-card reveal">
+				<div class="feature-icon">🤝</div>
+				<h3>Expert Guidance</h3>
+				<p>Our team supports you through every step with clarity.</p>
+			</div>
+			<div class="feature-card reveal">
+				<div class="feature-icon">🔒</div>
+				<h3>Secure Checkout</h3>
+				<p>Test-mode enabled payments to validate the full flow safely.</p>
+			</div>
+		</div>
 	</div>
 </section>
 
